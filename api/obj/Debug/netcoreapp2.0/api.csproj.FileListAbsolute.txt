@@ -1,0 +1,10 @@
+/home/liming/WorkSpace/projects/dotnet/api/bin/Debug/netcoreapp2.0/api.deps.json
+/home/liming/WorkSpace/projects/dotnet/api/bin/Debug/netcoreapp2.0/api.runtimeconfig.json
+/home/liming/WorkSpace/projects/dotnet/api/bin/Debug/netcoreapp2.0/api.runtimeconfig.dev.json
+/home/liming/WorkSpace/projects/dotnet/api/bin/Debug/netcoreapp2.0/api.dll
+/home/liming/WorkSpace/projects/dotnet/api/bin/Debug/netcoreapp2.0/api.pdb
+/home/liming/WorkSpace/projects/dotnet/api/obj/Debug/netcoreapp2.0/api.csproj.CoreCompileInputs.cache
+/home/liming/WorkSpace/projects/dotnet/api/obj/Debug/netcoreapp2.0/api.AssemblyInfoInputs.cache
+/home/liming/WorkSpace/projects/dotnet/api/obj/Debug/netcoreapp2.0/api.AssemblyInfo.cs
+/home/liming/WorkSpace/projects/dotnet/api/obj/Debug/netcoreapp2.0/api.dll
+/home/liming/WorkSpace/projects/dotnet/api/obj/Debug/netcoreapp2.0/api.pdb
