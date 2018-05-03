@@ -17,8 +17,8 @@ namespace planeTicketBooking.Controllers
 {
     public class AirportAdminController : Controller
     {
-        // GET: AirportAdmin
-        public ActionResult Index()
+        // GET: 绑定机场名称设置页面的视图
+        public ActionResult airportname_set()
         {
             return View();
         }

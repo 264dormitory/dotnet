@@ -17,7 +17,7 @@ namespace planeTicketBooking.Controllers
     public class OrderAdminController : Controller
     {
         // GET: OrderAdmin
-        public ActionResult Index()
+        public ActionResult index()
         {
             return View();
         }
