@@ -14,19 +14,6 @@ namespace api.Controllers
 {
     public class PlaneController : Controller
     {
-        // todo 跨域问题
-        [Route("/User/login")]
-        [HttpPost]
-        public JsonResult Login([FromBody]User value) {
-            //模拟发送http请求 POST数据
-            //将User对象转化为json数据格式
-            //定义请求的数据
-            byte[] bytes = Encoding.UTF8.GetBytes(value.ToString());
-
-            //返回json数据
-            return Json(Connect.PostStringResultWithRequestBody("/User/login", bytes));
-        }
-
         //获取所有的飞机信息的分页信息
         [Route("/Plane/pageAllPlanes")]
         [HttpGet]
