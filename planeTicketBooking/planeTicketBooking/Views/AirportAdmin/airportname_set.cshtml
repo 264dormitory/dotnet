@@ -3,6 +3,9 @@
     Layout = null;
 }
 
+@using planeTicketBooking.Models;
+@Model City;
+
 <!DOCTYPE html>
 <html>
 
@@ -117,11 +120,14 @@
                                             <th>操作</th>
                                         </tr>
                                     </tfoot>
+                                    @{ 
+                                        planeTicketBooking.Models.City city = (planeTicketBooking.Models.City) ViewData["city"];
+                                    }
                                     <tbody id="airport_message">
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>@city.CityId</td>
+                                            <td>@city.AirportName</td>
+                                            <td>@city.CityName</td>
                                             <td style="text-align:center;">
                                                 <div class="col-md-6" style="margin:-4px 0px 0px 0px;">
                                                     <button type="button" class="btn bg-green waves-effect">

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using planeTicketBooking.Models;
 /// <summary>
 /// 李世杰创建
 /// 
@@ -20,6 +21,11 @@ namespace planeTicketBooking.Controllers
         // GET: 绑定机场名称设置页面的视图
         public ActionResult airportname_set()
         {
+            City city = new City();
+            city.CityId = 1;
+            city.CityName = "北京市";
+            city.AirportName = "首都T2机场";
+            ViewData["city"] = city;
             return View();
         }
     }
