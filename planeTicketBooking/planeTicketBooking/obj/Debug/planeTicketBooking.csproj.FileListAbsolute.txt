@@ -218,3 +218,8 @@ D:\gitFile\dotnet\planeTicketBooking\planeTicketBooking\bin\zh-Hans\Microsoft.Ow
 D:\gitFile\dotnet\planeTicketBooking\planeTicketBooking\obj\Debug\planeTicketBooking.csprojResolveAssemblyReference.cache
 D:\gitFile\dotnet\planeTicketBooking\planeTicketBooking\obj\Debug\planeTicketBooking.dll
 D:\gitFile\dotnet\planeTicketBooking\planeTicketBooking\obj\Debug\planeTicketBooking.pdb
+D:\gitFile\dotnet\planeTicketBooking\planeTicketBooking\bin\MySql.Data.dll
+D:\gitFile\dotnet\planeTicketBooking\planeTicketBooking\bin\MySql.Web.dll
+D:\gitFile\dotnet\planeTicketBooking\planeTicketBooking\bin\Google.Protobuf.dll
+D:\gitFile\dotnet\planeTicketBooking\planeTicketBooking\bin\MySql.Data.xml
+D:\gitFile\dotnet\planeTicketBooking\planeTicketBooking\bin\MySql.Web.xml

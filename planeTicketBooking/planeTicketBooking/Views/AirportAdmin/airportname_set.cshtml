@@ -4,7 +4,7 @@
 }
 
 @using planeTicketBooking.Models;
-@Model City;
+@Model CityListModels;
 
 <!DOCTYPE html>
 <html>
@@ -103,7 +103,7 @@
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <table id="cityMsgTable" class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
                                             <th>城市编号</th>
@@ -120,25 +120,25 @@
                                             <th>操作</th>
                                         </tr>
                                     </tfoot>
-                                    @{ 
-                                        planeTicketBooking.Models.City city = (planeTicketBooking.Models.City) ViewData["city"];
-                                    }
                                     <tbody id="airport_message">
-                                        <tr>
-                                            <td>@city.CityId</td>
-                                            <td>@city.AirportName</td>
-                                            <td>@city.CityName</td>
-                                            <td style="text-align:center;">
-                                                <div class="col-md-6" style="margin:-4px 0px 0px 0px;">
-                                                    <button type="button" class="btn bg-green waves-effect">
-                                                        修改
-                                                    </button>
-                                                    <button type="button" class="btn bg-red waves-effect">
-                                                        删除
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        @foreach (City item in Model.CityArray)
+                                        {
+                                            <tr>
+                                                <td>@item.CityId</td>
+                                                <td>@item.AirportName</td>
+                                                <td>@item.CityName</td>
+                                                <td>
+                                                    <div class="col-md-5 col-md-offset-7">
+                                                        <button type="button" class="btn btn-default waves-effect">
+                                                            修改
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary waves-effect">
+                                                            删除
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
                                     </tbody>
                                 </table>
                             </div>
@@ -174,6 +174,8 @@
     <script src="../../Content/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
     <script src="../../Content/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="../../Content/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    @* 用于添加、修改、删除按钮的JS文件和DataTable的中文化 *@
+    <script src="../../Scripts/adminjs/airportSet.js"></script>
 
     <!-- Custom Js -->
     <script src="../../Scripts/adminjs/admin.js"></script>
