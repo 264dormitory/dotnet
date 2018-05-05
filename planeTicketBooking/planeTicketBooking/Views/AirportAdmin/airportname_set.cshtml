@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -37,6 +36,12 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="../../Content/css/themes/all-themes.css" rel="stylesheet" />
+
+    @* 信息提示框样式文件 *@
+    <link href="../../Content/sweetalert2.css" rel="stylesheet"/>
+
+    @* 城市选择插件 *@
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/hzw-city-picker.css")">
 </head>
 
 <!-- 新增按钮 模态框 started -->
@@ -52,25 +57,66 @@
                     <div class="col-sm-12">
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="text" class="form-control" placeholder="机场名称" />
+                                <input id="addAirportName" type="text" class="form-control" placeholder="机场名称" />
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-line">
-                                <input type="password" class="form-control" placeholder="所属城市" />
+                                <input id="addCityBelong" class="form-control" type="text" name="localtion" placeholder="所属城市" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">保存</button>
+                <button id="addCancelBtn" type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button id="addSureBtn" type="button" class="btn btn-primary">保存</button>
             </div>
         </div>
     </div>
 </div>
 <!-- #end# 新增按钮 模态框 -->
+
+<!-- 修改按钮 模态框 started -->
+<div class="modal fade" id="changeAirport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="changeAirport">修改机场信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="changeAirportID" class="col-sm-2 control-label">城市编号</label>
+                            <div class="form-line">
+                                <input id="changeAirportID" type="text" class="form-control" disabled/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="changeAirportName" class="col-sm-2 control-label">机场名称</label>
+                            <div class="form-line">
+                                <input id="changeAirportName" type="text" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="changeCityBelong" class="col-sm-2 control-label">城市名称</label>
+                            <div class="form-line">
+                                <input id="changeCityBelong" class="form-control" type="text" name="localtion" disabled/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="changeCancelBtn" type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button id="changeSureBtn" type="button" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- #end# 修改按钮 模态框 -->
 
 <body class="theme-indigo">
     @Html.Partial("~/Views/pageModel/topbar.cshtml"); 
@@ -107,8 +153,8 @@
                                     <thead>
                                         <tr>
                                             <th>城市编号</th>
-                                            <th>城市名称</th>
                                             <th>机场名称</th>
+                                            <th>城市名称</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
@@ -129,10 +175,10 @@
                                                 <td>@item.CityName</td>
                                                 <td>
                                                     <div class="col-md-5 col-md-offset-7">
-                                                        <button type="button" class="btn btn-default waves-effect">
+                                                        <button onclick='change(@item.CityId, "@item.AirportName.ToString()", "@item.CityName.ToString()")' type="button" class="btn btn-default waves-effect"  data-toggle="modal" data-target="#changeAirport">
                                                             修改
                                                         </button>
-                                                        <button type="button" class="btn btn-primary waves-effect">
+                                                        <button onclick='Delete(@item.CityId)' type="button" class="btn btn-primary waves-effect">
                                                             删除
                                                         </button>
                                                     </div>
@@ -152,6 +198,7 @@
 
     <!-- Jquery Core Js -->
     <script src="../../Content/plugins/jquery/jquery.min.js"></script>
+
     <!-- Bootstrap Core Js -->
     <script src="../../Content/plugins/bootstrap/js/bootstrap.js"></script>
 
@@ -164,6 +211,9 @@
     <!-- Waves Effect Plugin Js -->
     <script src="../../Content/plugins/node-waves/waves.js"></script>
 
+    @* 信息提示框 *@
+    <script src="../../Scripts/sweetalert2.min.js"></script>
+
     <!-- Jquery DataTable Plugin Js -->
     <script src="../../Content/plugins/jquery-datatable/jquery.dataTables.js"></script>
     <script src="../../Content/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
@@ -174,6 +224,12 @@
     <script src="../../Content/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
     <script src="../../Content/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
     <script src="../../Content/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+    
+    <!-- 实现城市选择 -->
+    <script src="@Url.Content("~/Scripts/city-data.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/hzw-city-picker.min.js")"></script>
+    
+
     @* 用于添加、修改、删除按钮的JS文件和DataTable的中文化 *@
     <script src="../../Scripts/adminjs/airportSet.js"></script>
 
