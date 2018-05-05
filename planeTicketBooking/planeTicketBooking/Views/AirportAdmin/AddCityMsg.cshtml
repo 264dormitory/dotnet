@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+}
+
+<div style="display:none;">
+    @using planeTicketBooking.Models;
+    @Model CityListModels;
+</div>
+
+<div class="table-responsive">
+    <table id="cityMsgTable" class="table table-bordered table-striped table-hover js-basic-example dataTable">
+        <thead>
+            <tr>
+                <th>城市编号</th>
+                <th>城市名称</th>
+                <th>机场名称</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>城市编号</th>
+                <th>城市名称</th>
+                <th>机场名称</th>
+                <th>操作</th>
+            </tr>
+        </tfoot>
+        <tbody id="airport_message">
+            @foreach (City item in Model.CityArray)
+            {
+                <tr>
+                    <td>@item.CityId</td>
+                    <td>@item.AirportName</td>
+                    <td>@item.CityName</td>
+                    <td>
+                        <div class="col-md-5 col-md-offset-7">
+                            <button type="button" class="btn btn-default waves-effect">
+                                修改
+                            </button>
+                            <button type="button" class="btn btn-primary waves-effect">
+                                删除
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
