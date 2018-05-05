@@ -466,6 +466,7 @@
     <Content Include="Scripts\adminjs\admin.js" />
     <Content Include="Scripts\adminjs\airportSet.js" />
     <Content Include="Scripts\adminjs\demo.js" />
+    <Content Include="Scripts\adminjs\flightinfo.js" />
     <Content Include="Scripts\adminjs\helpers.js" />
     <Content Include="Scripts\adminjs\script.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
@@ -554,6 +555,8 @@
     <Content Include="Views\AirportAdmin\airportname_set.cshtml" />
     <Content Include="Views\OrderAdmin\index.cshtml" />
     <Content Include="Views\AirportAdmin\AddCityMsg.cshtml" />
+    <Content Include="Views\FlightAdmin\FlightInfo.cshtml" />
+    <Content Include="Views\FlightAdmin\AddFlightMsg.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -604,7 +607,6 @@
     <Folder Include="Scripts\adminjs\leftpages\" />
     <Folder Include="Scripts\adminjs\pages\" />
     <Folder Include="Views\AirlineCompanyAdmin\" />
-    <Folder Include="Views\FlightAdmin\" />
     <Folder Include="Views\Flight\" />
     <Folder Include="Views\Order\" />
     <Folder Include="Views\test\" />
