@@ -78,7 +78,8 @@ namespace planeTicketBooking.Controllers
 				conn.Close();
 			}
 			return View(airlineList);
-			/// <summary>
+		}
+		/// <summary>
 			/// 用于添加城市信息数据
 			/// </summary>
 			/*[HttpPost]
@@ -139,6 +140,5 @@ namespace planeTicketBooking.Controllers
 				conn.Close();
 				return "数据删除成功";
 			}*/
-		}
 	}
 }

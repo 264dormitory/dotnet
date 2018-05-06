@@ -57,7 +57,7 @@
                     <div class="col-sm-12">
                         <div class="form-group">
                             <div class="form-line">
-                                <input id="addFlight_id" type="text" class="form-control" placeholder="航线ID" disable/>
+                                <input id="addFlight_id" type="text" class="form-control" placeholder="航线ID" disable />
                             </div>
                         </div>
                         <div class="form-group">
@@ -112,13 +112,13 @@
                         <div class="form-group">
                             <label for="changeAirline_DepartureCity" class="col-sm-2 control-label">出发城市</label>
                             <div class="form-line">
-                                <input id="changeAirline_DepartureCity" class="form-control"  name="localtion" disabled />
+                                <input id="changeAirline_DepartureCity" class="form-control" name="localtion" disabled />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="changeAirline_ArriveCity" class="col-sm-2 control-label">到达城市</label>
                             <div class="form-line">
-                                <input id="changeAirline_ArriveCity" class="form-control"  name="localtion" disabled />
+                                <input id="changeAirline_ArriveCity" class="form-control" name="localtion" disabled />
                             </div>
                         </div>
                     </div>
@@ -184,24 +184,24 @@
                                         </tr>
                                     </tfoot>
                                     <tbody id="airline_message">
-                                        @foreach (AirlineModels item in Model.CityArray)
+                                        @foreach (AirlineModels item in Model.AirlineModelsArray)
                                         {
-                                        <tr>
-                                            <td>@item.Airline_id</td>
-                                            <td>@item.Departure_city</td>
-                                            <td>@item.Arrive_city</td>
-                                            <td>@item.Airline_price</td>
-                                            <td>
-                                                <div class="col-md-5 col-md-offset-7">
-                                                    <button onclick='change(@item.Airline_id, "@item.Departure_city.ToString()", "@item.Arrive_city.ToString()","@item.Airline_price")' type="button" class="btn btn-default waves-effect" data-toggle="modal" data-target="#changeAirline">
-                                                        修改
-                                                    </button>
-                                                    <button onclick='Delete(@item.Airline_id)' type="button" class="btn btn-primary waves-effect">
-                                                        删除
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                            <tr>
+                                                <td>@item.Airline_id.ToString()</td>
+                                                <td>@item.Departure_city</td>
+                                                <td>@item.Arrive_city</td>
+                                                <td>@item.Airline_price.ToString()</td>
+                                                <td>
+                                                    <div class="col-md-5 col-md-offset-7">
+                                                        <button onclick='change(@item.Airline_id.ToString(), "@item.Departure_city.", "@item.Arrive_city","@item.Airline_price.ToString()")' type="button" class="btn btn-default waves-effect" data-toggle="modal" data-target="#changeAirline">
+                                                            修改
+                                                        </button>
+                                                        <button onclick='Delete(@item.Airline_id.ToString())' type="button" class="btn btn-primary waves-effect">
+                                                            删除
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                         }
                                     </tbody>
                                 </table>
