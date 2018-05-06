@@ -228,6 +228,8 @@
     </Compile>
     <Compile Include="Controllers\LoginAndRegistController.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AirlineListModels.cs" />
+    <Compile Include="Models\AirlineModels.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\CityListModels.cs" />
     <Compile Include="Models\FlightListModels.cs" />
@@ -565,6 +567,8 @@
     <Content Include="Views\pageModel\banner.cshtml" />
     <Content Include="Views\pageModel\scrollup.cshtml" />
     <Content Include="Views\pageModel\flight_template.cshtml" />
+    <Content Include="Views\AirlineCompanyAdmin\AirlineInfo.cshtml" />
+    <Content Include="Views\AirlineCompanyAdmin\AddAirlineMsg.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -614,7 +618,6 @@
     <Folder Include="img\company\" />
     <Folder Include="Scripts\adminjs\leftpages\" />
     <Folder Include="Scripts\adminjs\pages\" />
-    <Folder Include="Views\AirlineCompanyAdmin\" />
     <Folder Include="Views\Order\" />
     <Folder Include="Views\test\" />
   </ItemGroup>

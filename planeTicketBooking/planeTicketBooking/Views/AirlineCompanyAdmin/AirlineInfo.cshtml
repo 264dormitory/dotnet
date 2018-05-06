@@ -1,0 +1,262 @@
+﻿@{
+    Layout = null;
+}
+
+@using planeTicketBooking.Models;
+@Model AirlineListModels;
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>航线管理</title>
+    <!-- Favicon-->
+    <link rel="icon" href="../../Images/favicon.png">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="../../Content/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="../../Content/plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="../../Content/plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- JQuery DataTable Css -->
+    <link href="../../Content/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
+
+    <!-- Custom Css -->
+    <link href="../../Content/css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="../../Content/css/themes/all-themes.css" rel="stylesheet" />
+
+    @* 信息提示框样式文件 *@
+    <link href="../../Content/sweetalert2.css" rel="stylesheet" />
+
+    @* 城市选择插件 *@
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/hzw-city-picker.css")">
+</head>
+
+<!-- 新增按钮 模态框 started -->
+<div class="modal fade" id="newAirline" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="newAirline">新增航线信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input id="addFlight_id" type="text" class="form-control" placeholder="航线ID" disable/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input id="addAirline_price" class="form-control" type="text" name="price" placeholder="航线价格" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input id="addAirline_departureCity" class="form-control" name="localtion" placeholder="出发城市" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input id="addAirline_arriveCity" class="form-control" name="localtion" placeholder="到达城市" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="addCancelBtn" type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button id="addSureBtn" type="button" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- #end# 新增按钮 模态框 -->
+<!-- 修改按钮 模态框 started -->
+<div class="modal fade" id="changeAirport" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="changeAirport">航线信息设置</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="changeAirline_ID" class="col-sm-2 control-label">航线编号</label>
+                            <div class="form-line">
+                                <input id="changeAirline_ID" type="text" class="form-control" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="changeAirline_Price" class="col-sm-2 control-label">航线价格</label>
+                            <div class="form-line">
+                                <input id="changeAirline_Price" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="changeAirline_DepartureCity" class="col-sm-2 control-label">出发城市</label>
+                            <div class="form-line">
+                                <input id="changeAirline_DepartureCity" class="form-control"  name="localtion" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="changeAirline_ArriveCity" class="col-sm-2 control-label">到达城市</label>
+                            <div class="form-line">
+                                <input id="changeAirline_ArriveCity" class="form-control"  name="localtion" disabled />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="changeCancelBtn" type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button id="changeSureBtn" type="button" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- #end# 修改按钮 模态框 -->
+
+<body class="theme-indigo">
+    @Html.Partial("~/Views/pageModel/topbar.cshtml");
+    <section>
+        @Html.Partial("~/Views/pageModel/leftbar.cshtml");
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>
+                    航线设置
+                </h2>
+            </div>
+            <!-- 机场信息展示 表格 start -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header" style="padding-bottom: 40px;">
+                            <div class="col-md-6">
+                                <h2>
+                                    航线信息展示
+                                </h2>
+                            </div>
+                            <div class="col-md-1 col-md-offset-5">
+                                <button type="button" class="btn btn-primary waves-effect" data-toggle="modal" data-target="#newAirline">
+                                    添加
+                                </button>
+                            </div>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table id="AirlineMsgTable" class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>航线编号</th>
+                                            <th>航线价格</th>
+                                            <th>出发城市</th>
+                                            <th>到达城市</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>航线编号</th>
+                                            <th>航线价格</th>
+                                            <th>出发城市</th>
+                                            <th>到达城市</th>
+                                            <th>操作</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody id="airline_message">
+                                        @foreach (AirlineModels item in Model.CityArray)
+                                        {
+                                        <tr>
+                                            <td>@item.Airline_id</td>
+                                            <td>@item.Departure_city</td>
+                                            <td>@item.Arrive_city</td>
+                                            <td>@item.Airline_price</td>
+                                            <td>
+                                                <div class="col-md-5 col-md-offset-7">
+                                                    <button onclick='change(@item.Airline_id, "@item.Departure_city.ToString()", "@item.Arrive_city.ToString()","@item.Airline_price")' type="button" class="btn btn-default waves-effect" data-toggle="modal" data-target="#changeAirline">
+                                                        修改
+                                                    </button>
+                                                    <button onclick='Delete(@item.Airline_id)' type="button" class="btn btn-primary waves-effect">
+                                                        删除
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# 航线信息展示 表格 -->
+        </div>
+    </section>
+
+    <!-- Jquery Core Js -->
+    <script src="../../Content/plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core Js -->
+    <script src="../../Content/plugins/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="../../Content/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+    <!-- Slimscroll Plugin Js -->
+    <script src="../../Content/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="../../Content/plugins/node-waves/waves.js"></script>
+
+    @* 信息提示框 *@
+    <script src="../../Scripts/sweetalert2.min.js"></script>
+
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="../../Content/plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="../../Content/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="../../Content/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="../../Content/plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="../../Content/plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="../../Content/plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="../../Content/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="../../Content/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="../../Content/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
+    <!-- 实现城市选择 -->
+    <script src="@Url.Content("~/Scripts/city-data.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/hzw-city-picker.min.js")"></script>
+
+
+    @* 用于添加、修改、删除按钮的JS文件和DataTable的中文化 *@
+    <script src="../../Scripts/adminjs/airportSet.js"></script>
+
+    <!-- Custom Js -->
+    <script src="../../Scripts/adminjs/admin.js"></script>
+    <script src="../../Scripts/adminjs/pages/tables/jquery-datatable.js"></script>
+
+    <!-- Demo Js -->
+    <script src="../../Scripts/adminjs/demo.js"></script>
+</body>
+
+</html>
