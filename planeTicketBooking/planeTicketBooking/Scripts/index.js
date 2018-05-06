@@ -90,7 +90,7 @@ $(document).ready(function()
         {
             if(single_ok)
             {
-                window.location.href="./flight.php?"+"setout="+setout+"&destination="
+                location.href="/Flight/Index?"+"setout="+setout+"&destination="
                                             +destination+"&setout_date="+setout_date
                                             +"&type="+"single";
             }
