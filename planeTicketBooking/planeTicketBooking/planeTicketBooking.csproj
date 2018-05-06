@@ -565,6 +565,8 @@
     <Content Include="Views\pageModel\banner.cshtml" />
     <Content Include="Views\pageModel\scrollup.cshtml" />
     <Content Include="Views\pageModel\flight_template.cshtml" />
+    <Content Include="Views\Order\order.cshtml" />
+    <Content Include="Views\OrderFull\orderfull.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -615,7 +617,6 @@
     <Folder Include="Scripts\adminjs\leftpages\" />
     <Folder Include="Scripts\adminjs\pages\" />
     <Folder Include="Views\AirlineCompanyAdmin\" />
-    <Folder Include="Views\Order\" />
     <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>
