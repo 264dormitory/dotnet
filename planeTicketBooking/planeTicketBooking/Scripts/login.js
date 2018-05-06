@@ -68,7 +68,8 @@ $(document).ready(function()
                         }
                         else
                         {
-                            window.location.href="./index.php";
+                            //登陆成功后跳转到机票预定界面
+                            location.href ="/Index/Index";
                         }
                         
                     }
