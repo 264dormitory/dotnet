@@ -1,7 +1,8 @@
 ﻿//修改按钮的点击事件
-function change(flight_id, flight_num, flight_departuretime, flight_arrivetime, flight_departurecity, flight_arrivecity,flight_companyname) {
+function change(flight_id, detailflight_id, flight_num, flight_departuretime, flight_arrivetime, flight_departurecity, flight_arrivecity, flight_companyname) {
     //通过传参获取表格中每一项的数据
     $('#changeFlight_ID').val(flight_id);
+    $('#changeDetailflight_ID').val(detailflight_id);
     $('#changeFlight_Num').val(flight_num);
     $('#changeFlight_Departuretime').val(flight_departuretime);
     $('#changeFlight_Arrivetime').val(flight_arrivetime);
@@ -11,7 +12,7 @@ function change(flight_id, flight_num, flight_departuretime, flight_arrivetime, 
 }
 
 //删除按钮的点击事件
-function Delete(id) {
+function Delete(detailflight_id) {
     swal({
         title: '确定要删除此航班信息吗?',
         text: "此项操作是不可恢复的!",
@@ -24,9 +25,9 @@ function Delete(id) {
     }).then(function () {
         //向相应的Controller发送请求
         $.ajax({
-            url: '/FlightInfo/DeleteFlightMsg',
+            url: '/FlightAdmin/DeleteFlightMsg',
             type: 'post',
-            data: { Flight_ID: id },
+            data: { detailflight_id: detailflight_id },
             success: function (data) {
                 console.log("数据删除成功");
                 console.log(data);
@@ -63,6 +64,7 @@ $(document).ready(function () {
     //添加模态框-取消按钮-清空输入框
     $('#addCancelBtn').click(function () {
         $('#addFlight_id').val('');
+        $('#addDetailflight_id').val('');
         $('#addFlight_num').val('');
         $('#addFlight_departuretime').val('');
         $('#addFlight_arrivetime').val('');
@@ -78,20 +80,21 @@ $(document).ready(function () {
      */
     //
     $('#addSureBtn').click(function () {
-        var Flight_id = $('#addFlight_id').val();
-        var Flight_num = $('#addFlight_num').val();
-        var Flight_departuretime = $('#addFlight_departuretime').val();
-        var Flight_arrivetime = $('#addFlight_arrivetime').val();
-        var Flight_departureCity = $('#addFlight_departureCity').val();
-        var Flight_arriveCity = $('#addFlight_arriveCity').val();
-        var Flight_companyName = $('#addFlight_companyName').val();
+        var flight_id = $('#addFlight_id').val();
+        var detail_airlineid = $('#addDetailflight_id').val();
+        var flight_num = $('#addFlight_num').val();
+        var departure_time = $('#addFlight_departuretime').val();
+        var arrive_time = $('#addFlight_arrivetime').val();
+        var departureCity = $('#addFlight_departureCity').val();
+        var arriveCity = $('#addFlight_arriveCity').val();
+        var flightCompanyName = $('#addFlight_companyName').val();
 
         //alert(airportName + cityBelong);
         //向相应的Controller发送请求
         $.ajax({
-            url: '/FlightInfo/AddFlightMsg',
+            url: '/FlightAdmin/AddFlightMsg',
             type: 'post',
-            data: { Flight_id: Flight_id, Flight_num: Flight_num, Flight_departuretime: Flight_departuretime, Flight_arrivetime: Flight_arrivetime, Flight_departureCity: Flight_departureCity, Flight_arriveCity: Flight_arriveCity, Flight_companyName: Flight_companyName},
+            data: { flight_id: flight_id, detail_airlineid: detail_airlineid, flight_num: flight_num, departure_time: departure_time, arrive_time: arrive_time, departureCity: departureCity, arriveCity: arriveCity, flightCompanyName: flightCompanyName },
             success: function (data) {
                 console.log("新增数据成功");
                 console.log(data);
@@ -112,22 +115,20 @@ $(document).ready(function () {
      * 修改模态框-确认按钮-修改数据库中的数据
      * 利用AJAX发送请求
      */
-    $('#changeSureBtn').click(function () {
-        var Flight_id = $('#changeFlight_ID').val();
-        var Flight_num = $('#changeFlight_Num').val();
-        var Flight_departuretime = $('#changeFlight_Departuretime').val();
-        var Flight_arrivetime = $('#changeFlight_Arrivetime').val();
-        var Flight_departureCity = $('#changeFlight_DepartureCity').val();
-        var Flight_arriveCity = $('#changeFlight_ArriveCity').val();
-        var Flight_companyName = $('#changeFlight_CompanyName').val();
+    $('#changeFlightSureBtn').click(function () {
+        var flight_id = $('#changeFlight_ID').val();
+        var detailflight_id = $('#changeDetailflight_ID').val();
+        var departure_time = $('#changeFlight_Departuretime').val();
+        var arrive_time = $('#changeFlight_Arrivetime').val();
+        //  var flightCompanyName = $('#changeFlight_CompanyName').val();
 
 
 
         //向相应的Controller发送请求
         $.ajax({
-            url: '/AirportAdmin/ChangeCityMsg',
+            url: '/FlightAdmin/ChangeFlightMsg',
             type: 'post',
-            data: { Flight_id: Flight_id, Flight_num: Flight_num, Flight_departuretime: Flight_departuretime, Flight_arrivetime: Flight_arrivetime, Flight_departureCity: Flight_departureCity, Flight_arriveCity: Flight_arriveCity, Flight_companyName: Flight_companyName},
+            data: { flight_id: flight_id, detailflight_id: detailflight_id, departure_time: departure_time, arrive_time: arrive_time },
             success: function (data) {
                 console.log("数据修改成功");
                 console.log(data);
