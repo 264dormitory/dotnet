@@ -64,7 +64,7 @@ $(document).ready(function()
                         $("#l_login").attr("disabled", true);
                         if(username == "admin")
                         {
-                            window.location.href="./admin/index.php";
+                            window.location.href="/OrderAdmin/index";
                         }
                         else
                         {

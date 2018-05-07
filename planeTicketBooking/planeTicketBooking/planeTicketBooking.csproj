@@ -567,14 +567,11 @@
     <Content Include="Views\pageModel\banner.cshtml" />
     <Content Include="Views\pageModel\scrollup.cshtml" />
     <Content Include="Views\pageModel\flight_template.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Order\order.cshtml" />
     <Content Include="Views\OrderFull\orderfull.cshtml" />
-=======
     <Content Include="Views\AirlineCompanyAdmin\AddAirlineMsg.cshtml" />
     <Content Include="Views\AirlineCompanyAdmin\AirlineCompanyAdmin.cshtml" />
     <Content Include="Views\FlightAdmin\FlightInfo.cshtml" />
->>>>>>> chbnew
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
