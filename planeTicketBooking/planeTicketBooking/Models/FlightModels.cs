@@ -13,6 +13,8 @@ namespace planeTicketBooking.Models
     {
         public int Flight_id { get; set; }   //航班ID
 
+        public int detail_airlineid { get; set; }  //ID1
+
         public String Flight_num { get; set; }  //航班号
 
         public DateTime Departure_time { get; set; }  //出发时间
