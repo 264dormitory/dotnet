@@ -12,11 +12,10 @@ namespace api.Controllers
 {
     public class CityController : Controller
     {
-        // GET api/city
-        // todo 跨域问题
+        // 获取所有的城市
         [Route("/City")]
         [HttpGet]
-        public JsonResult Get()
+        public JsonResult GetAll()
         {
             //模拟发送http请求
             string result = "";
@@ -33,6 +32,23 @@ namespace api.Controllers
 
             //返回json数据
             return Json(result);
+        }
+
+        [Route("/City")]
+        [HttpPost]
+        public JsonResult Save([FromBody]City city) {
+            byte[] bytes = Encoding.UTF8.GetBytes(city.ToString());
+
+            //返回json数据
+            return Json(Connect.PostStringResultWithRequestBody("/City", bytes));
+        }
+
+        [Route("/City/{id}")]
+        [HttpGet]
+        public JsonResult GetOneCity(int id) {
+
+            //返回json数据
+            return Json(Connect.GetStringResultWithNoParams("/City/" + id));
         }
     }
 }

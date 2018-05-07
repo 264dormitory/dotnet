@@ -8,6 +8,37 @@ function change(id, airportName, cityName) {
 
 //删除按钮的点击事件
 function Delete(id) {
+    //用于DataTable的汉化
+    $('#cityMsgTable').DataTable({
+        "language": {
+            "sProcessing": "处理中...",
+            "sLengthMenu": "显示 _MENU_ 项结果",
+            "sZeroRecords": "没有匹配结果",
+            "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+            "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+            "sInfoPostFix": "",
+            "sSearch": "搜索:",
+            "sUrl": "",
+            "sEmptyTable": "表中数据为空",
+            "sLoadingRecords": "载入中...",
+            "sInfoThousands": ",",
+            "oPaginate": {
+                "sFirst": "首页",
+                "sPrevious": "上页",
+                "sNext": "下页",
+                "sLast": "末页"
+            },
+            "oAria": {
+                "sSortAscending": ": 以升序排列此列",
+                "sSortDescending": ": 以降序排列此列"
+            }
+        },
+        "destory": true,
+        "retrieve": true
+    });
+    $('#cityMsgTable').dataTable().fnDestroy();
+
     swal({
         title: '确定要删除此机场信息吗?',
         text: "此项操作是不可恢复的!",
@@ -107,39 +138,13 @@ $(document).ready(function () {
             success: function (data) {
                 console.log("数据修改成功");
                 console.log(data);
+                //$('#cityMsgTable').dataTable().fnClearTable(this);
+                //$('#cityMsgTable').dataTable().fnReloadAjax();
                 location.reload();
             },
             error: function (err) {
                 console.log(err);
             }
         });
-    });
-
-    //用于DataTable的汉化
-    $('#cityMsgTable').DataTable({
-        language: {
-            "sProcessing": "处理中...",
-            "sLengthMenu": "显示 _MENU_ 项结果",
-            "sZeroRecords": "没有匹配结果",
-            "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
-            "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
-            "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
-            "sInfoPostFix": "",
-            "sSearch": "搜索:",
-            "sUrl": "",
-            "sEmptyTable": "表中数据为空",
-            "sLoadingRecords": "载入中...",
-            "sInfoThousands": ",",
-            "oPaginate": {
-                "sFirst": "首页",
-                "sPrevious": "上页",
-                "sNext": "下页",
-                "sLast": "末页"
-            },
-            "oAria": {
-                "sSortAscending": ": 以升序排列此列",
-                "sSortDescending": ": 以降序排列此列"
-            }
-        }
     });
 });

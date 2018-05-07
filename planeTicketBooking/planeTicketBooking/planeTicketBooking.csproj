@@ -220,6 +220,7 @@
     <Compile Include="Controllers\AirportAdminController.cs" />
     <Compile Include="Controllers\FlightAdminController.cs" />
     <Compile Include="Controllers\FlightController.cs" />
+    <Compile Include="Controllers\IndexController.cs" />
     <Compile Include="Controllers\OrderAdminController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
@@ -534,6 +535,7 @@
     <Content Include="Scripts\vue.js" />
     <Content Include="Scripts\vue.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Content\Order\bootstrap.min.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -557,6 +559,15 @@
     <Content Include="Views\AirportAdmin\AddCityMsg.cshtml" />
     <Content Include="Views\FlightAdmin\FlightInfo.cshtml" />
     <Content Include="Views\FlightAdmin\AddFlightMsg.cshtml" />
+    <Content Include="Views\Flight\Index.cshtml" />
+    <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\pageModel\footer.cshtml" />
+    <Content Include="Views\pageModel\header.cshtml" />
+    <Content Include="Views\pageModel\banner.cshtml" />
+    <Content Include="Views\pageModel\scrollup.cshtml" />
+    <Content Include="Views\pageModel\flight_template.cshtml" />
+    <Content Include="Views\Order\order.cshtml" />
+    <Content Include="Views\OrderFull\orderfull.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -607,8 +618,6 @@
     <Folder Include="Scripts\adminjs\leftpages\" />
     <Folder Include="Scripts\adminjs\pages\" />
     <Folder Include="Views\AirlineCompanyAdmin\" />
-    <Folder Include="Views\Flight\" />
-    <Folder Include="Views\Order\" />
     <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>
