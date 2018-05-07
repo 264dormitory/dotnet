@@ -244,7 +244,7 @@ var flightshow = new Vue({
 			    +"&flight_time="+flight_time+"&setout_airport="+setout_airport+
 			    "&arrive_airport="+arrive_airport+"&company="+company+"&id="+id+"&price="+price;
 			    // window.location.href="./orderfull.php"+url_date;
-			    window.open("./orderfull.php"+url_date, "_blank");
+			    window.open("/Orderfull/orderfull"+url_date, "_blank");
 			}
 		}
 	})
