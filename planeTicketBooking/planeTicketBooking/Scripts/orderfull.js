@@ -134,7 +134,20 @@ var nameList = new Vue(
           contentType: 'application/json;charset=UTF-8',
           success: function(data)
           {
-            console.log(data);
+              console.log(data);
+              console.log(data.lenhth);
+              if (data.length != 0) {
+                  nameList.passagerMessages = data;
+              }
+              else {
+                  console.log("error");
+                  nameList.passagerMessages = [{
+                      user: {
+                          username: "",
+                          phoneNum: ""
+                      }
+                  }];
+              }
             nameList.passagerMessages = data;
           },
           error: function(data)
