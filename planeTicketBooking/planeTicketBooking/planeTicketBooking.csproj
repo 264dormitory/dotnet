@@ -228,6 +228,8 @@
     </Compile>
     <Compile Include="Controllers\LoginAndRegistController.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AirlineListModels.cs" />
+    <Compile Include="Models\AirlineModels.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\CityListModels.cs" />
     <Compile Include="Models\FlightListModels.cs" />
@@ -557,7 +559,6 @@
     <Content Include="Views\AirportAdmin\airportname_set.cshtml" />
     <Content Include="Views\OrderAdmin\index.cshtml" />
     <Content Include="Views\AirportAdmin\AddCityMsg.cshtml" />
-    <Content Include="Views\FlightAdmin\FlightInfo.cshtml" />
     <Content Include="Views\FlightAdmin\AddFlightMsg.cshtml" />
     <Content Include="Views\Flight\Index.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
@@ -566,8 +567,14 @@
     <Content Include="Views\pageModel\banner.cshtml" />
     <Content Include="Views\pageModel\scrollup.cshtml" />
     <Content Include="Views\pageModel\flight_template.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Order\order.cshtml" />
     <Content Include="Views\OrderFull\orderfull.cshtml" />
+=======
+    <Content Include="Views\AirlineCompanyAdmin\AddAirlineMsg.cshtml" />
+    <Content Include="Views\AirlineCompanyAdmin\AirlineCompanyAdmin.cshtml" />
+    <Content Include="Views\FlightAdmin\FlightInfo.cshtml" />
+>>>>>>> chbnew
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -618,6 +625,7 @@
     <Folder Include="Scripts\adminjs\leftpages\" />
     <Folder Include="Scripts\adminjs\pages\" />
     <Folder Include="Views\AirlineCompanyAdmin\" />
+    <Folder Include="Views\Order\" />
     <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>
