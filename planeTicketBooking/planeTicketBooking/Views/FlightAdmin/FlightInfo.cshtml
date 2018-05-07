@@ -1,5 +1,5 @@
 ﻿@{
-     Layout = null;
+    Layout = null;
 }
 
 @using planeTicketBooking.Models;
@@ -63,6 +63,12 @@
 
                         <div class="form-group">
                             <div class="form-line">
+                                <input id="addDetailflight_id" type="text" class="form-control" placeholder="ID1" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-line">
                                 <input id="addFlight_num" type="text" class="form-control" placeholder="航班号" />
                             </div>
                         </div>
@@ -108,8 +114,6 @@
     </div>
 </div>
 <!-- #end# 新增按钮 模态框 -->
-
-
 <!-- 修改按钮 模态框 started -->
 <div class="modal fade" id="changeFlight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -127,6 +131,14 @@
                                 <input id="changeFlight_ID" type="text" class="form-control" disabled />
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="changeDetailflight_ID" class="col-sm-2 control-label">ID1</label>
+                            <div class="form-line">
+                                <input id="changeDetailflight_ID" type="text" class="form-control" disabled />
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label for="changeFlight_Num" class="col-sm-2 control-label">航班号</label>
                             <div class="form-line">
@@ -160,7 +172,7 @@
                         <div class="form-group">
                             <label for="changeFlight_CompanyName" class="col-sm-2 control-label">公司名称</label>
                             <div class="form-line">
-                                <input id="changeFlight_CompanyName" type="text" class="form-control" />
+                                <input id="changeFlight_CompanyName" type="text" class="form-control" disabled />
                             </div>
                         </div>
 
@@ -169,7 +181,7 @@
             </div>
             <div class="modal-footer">
                 <button id="changeCancelBtn" type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button id="changeSureBtn" type="button" class="btn btn-primary">保存</button>
+                <button id="changeFlightSureBtn" type="button" class="btn btn-primary">保存</button>
             </div>
         </div>
     </div>
@@ -213,6 +225,7 @@
                                     <thead>
                                         <tr>
                                             <th>航班ID</th>
+                                            <th>ID1</th>
                                             <th>航班号</th>
                                             <th>出发时间</th>
                                             <th>到达时间</th>
@@ -225,6 +238,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>航班ID</th>
+                                            <th>ID1</th>
                                             <th>航班号</th>
                                             <th>出发时间</th>
                                             <th>到达时间</th>
@@ -239,6 +253,7 @@
                                         {
                                             <tr>
                                                 <td>@item.Flight_id</td>
+                                                <td>@item.detail_airlineid</td>
                                                 <td>@item.Flight_num</td>
                                                 <td>@item.Departure_time</td>
                                                 <td>@item.Arrive_time</td>
@@ -246,11 +261,12 @@
                                                 <td>@item.Arrive_city</td>
                                                 <td>@item.FlightCompany_name</td>
                                                 <td>
-                                                    <div class="col-md-5 col-md-offset-7">
-                                                        <button onclick='change("@item.Departure_time.ToString()", "@item.Arrive_time.ToString()", "@item.FlightCompany_name.ToString()")' type="button" class="btn btn-default waves-effect" data-toggle="modal" data-target="#changeFlight">
+                                                    <div class="col-md-1 col-md-offset-1">
+                                                        <!--此处用于获取当前的航班信息-->
+                                                        <button onclick='change("@item.Flight_id.ToString()","@item.detail_airlineid.ToString()","@item.Flight_num.ToString()","@item.Departure_time.ToString()", "@item.Arrive_time.ToString()","@item.Departure_city.ToString()","@item.Arrive_city.ToString()", "@item.FlightCompany_name.ToString()")' type="button" class="btn btn-default waves-effect" data-toggle="modal" data-target="#changeFlight">
                                                             修改
                                                         </button>
-                                                        <button onclick='Delete(@item.Flight_id)' type="button" class="btn btn-primary waves-effect">
+                                                        <button onclick='Delete(@item.detail_airlineid)' type="button" class="btn btn-primary waves-effect">
                                                             删除
                                                         </button>
                                                     </div>
@@ -264,7 +280,7 @@
                     </div>
                 </div>
             </div>
-            <!-- #END# 机场信息展示 表格 -->
+            <!-- #END# 航班信息展示 表格 -->
         </div>
     </section>
 
