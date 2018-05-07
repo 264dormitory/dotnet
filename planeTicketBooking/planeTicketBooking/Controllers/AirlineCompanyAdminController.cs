@@ -31,11 +31,7 @@ namespace planeTicketBooking.Controllers
 			MySqlConnection conn = new MySqlConnection();
 			conn.ConnectionString = "Server=localhost;Database=ticket;User ID=admin;Password=admin;port=3306;CharSet=utf8;pooling=true;SslMode=None;";
 			//获取detail_airline、total_airline、city数据表中的相关数据
-			String airlineMsg = String.Format("SELECT total_airline.id,airline_price,city1.city_name,city2.city_name, " +
-												"FROM detail_airline, city city1, city city2,total_airline " +
-												"WHERE total_airline.set_out_city_id = city1.id " +
-												       "AND total_airline.arrive_city_id = city2.id " +
-													   "AND detail_airline.total_airline_id = total_airline.id ");
+			String airlineMsg = String.Format("SELECT total_airline.id,airline_price,city1.city_name,city2.city_name,FROM detail_airline, city city1, city city2,total_airline WHERE total_airline.set_out_city_id = city1.id AND total_airline.arrive_city_id = city2.id AND detail_airline.total_airline_id = total_airline.id ");
 			MySqlCommand comm = new MySqlCommand(airlineMsg, conn);
 			//创建和初始化数据适配器DataAdapter
 			MySqlDataAdapter airlineAdapter = new MySqlDataAdapter(airlineMsg, conn);
@@ -45,16 +41,16 @@ namespace planeTicketBooking.Controllers
 			{
 				conn.Open();
 				airlineAdapter.Fill(airlineDataSet, "airline");  //将DataSet起名为airline
-															   //使用DataTable来提取DataSet表中的数据
+				//使用DataTable来提取DataSet表中的数据
 				DataTable airlineDataTable = airlineDataSet.Tables["airline"];
-				foreach (DataRow dr in airlineDataTable.Rows)
-				{
-					foreach (DataColumn dc in airlineDataTable.Columns)
-					{
-						Console.WriteLine("{0}\t", dr[dc]);
-					}
-					Console.WriteLine();
-				}
+				//foreach (DataRow dr in airlineDataTable.Rows)
+				//{
+				//	foreach (DataColumn dc in airlineDataTable.Columns)
+				//	{
+				//		Console.WriteLine("{0}\t", dr[dc]);
+				//	}
+				//	Console.WriteLine();
+				//}
 
 
 				//将DataTable中的数据赋值到List之中
