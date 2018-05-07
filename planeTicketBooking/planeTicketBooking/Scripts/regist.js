@@ -363,7 +363,7 @@ $(document).ready(function()
 						$("#r_check").addClass("disabled");
 						$("#b_regist").addClass("disabled");
 							setTimeout(function(){
-							window.location.href="./loginAndRegist.php";}, 2000);
+							window.location.href="./LoginAndRegist";}, 2000);
 	            	}
 	            },
 	            error: function(data)

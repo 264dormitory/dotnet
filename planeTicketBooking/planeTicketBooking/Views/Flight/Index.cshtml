@@ -26,7 +26,7 @@
     <link href="@Url.Content("~/Content/image.css")" rel='stylesheet'>
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="@Url.Content("~/images/favicon.png")">
 
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -38,7 +38,7 @@
     @Html.Partial("~/Views/pageModel/header.cshtml");
 
     <!-- Grid page -->
-    <div class="content">
+    <div class="content" style="min-height:800px;">
         <div class="container">
             <div class="row">
                 <!-- slider -->
@@ -114,7 +114,7 @@
                     </div>
                     <!-- slider end -->
 
-                    <div id="project-container" class="row travel_lest">
+                    <div id="project-container" class="row travel_lest" style="min-height:570px;">
                         @Html.Partial("~/Views/pageModel/flight_template.cshtml");
                     </div>
 

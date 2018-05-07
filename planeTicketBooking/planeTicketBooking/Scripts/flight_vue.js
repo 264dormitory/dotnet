@@ -55,6 +55,15 @@ var page = new Vue({
 				            			flightshow.flightlist[i][j].arriveTime = flightshow.flightlist[i][j].arriveTime.substring(11, 16);
 				            			flightshow.flightlist[i][j].departureTime = flightshow.flightlist[i][j].departureTime.substring(11, 16);
 				            			console.log(flightshow.flightlist[i][j].arriveTime);
+				            			if (flightshow.flightlist[i][j].sparpreisTicket == null) {
+				            			    flightshow.flightlist[i][j].sparpreisTicket = { ticketPrice: "售罄" };
+				            			}
+				            			if (flightshow.flightlist[0][0].firstClassCabinTicket == null) {
+				            			    flightshow.flightlist[i][j].firstClassCabinTicket = { ticketPrice: "售罄" };
+				            			}
+				            			if (flightshow.flightlist[0][0].touristClassTicket == null) {
+				            			    flightshow.flightlist[i][j].touristClassTicket = { ticketPrice: "售罄" };
+				            			}
 				            		}
 				            	}
 				            },
@@ -88,6 +97,7 @@ var page = new Vue({
 				    var setout_date = jQuery.url.param("setout_date");
 				    var return_date = jQuery.url.param("return_date");
 				    var type = jQuery.url.param("type");
+				    console.log(page.currentpage);
 				    if(type == "single")
 				    {
 			    		var jsondata = {
@@ -117,6 +127,15 @@ var page = new Vue({
 				            			flightshow.flightlist[i][j].arriveTime = flightshow.flightlist[i][j].arriveTime.substring(11, 16);
 				            			flightshow.flightlist[i][j].departureTime = flightshow.flightlist[i][j].departureTime.substring(11, 16);
 				            			console.log(flightshow.flightlist[i][j].arriveTime);
+				            			if (flightshow.flightlist[i][j].sparpreisTicket == null) {
+				            			    flightshow.flightlist[i][j].sparpreisTicket = { ticketPrice: "售罄" };
+				            			}
+				            			if (flightshow.flightlist[0][0].firstClassCabinTicket == null) {
+				            			    flightshow.flightlist[i][j].firstClassCabinTicket = { ticketPrice: "售罄" };
+				            			}
+				            			if (flightshow.flightlist[0][0].touristClassTicket == null) {
+				            			    flightshow.flightlist[i][j].touristClassTicket = { ticketPrice: "售罄" };
+				            			}
 				            		}
 				            	}
 				            },
@@ -159,7 +178,7 @@ var flightshow = new Vue({
 			    if(type == "single")
 			    {
 		    		var jsondata = {
-		              page: page_number,
+		              page: 0,
 		              size: page_lenght,
 		              setOutCityName: setout,
 		              arriveCityName: destination,
@@ -180,8 +199,11 @@ var flightshow = new Vue({
 			                flightshow.totalpage = data.totalPages;
 			                page.$data.totalpage = flightshow.totalpage;
 			                console.log(flightshow.flightlist);
-			            	// console.log(flightshow.flightlist[0][0].arriveTime);
-			            	// console.log(flightshow.flightlist[0][0].arriveTime.substring(11, 16));
+			                //console.log(flightshow.flightlist[0][0].firstClassCabinTicket.ticketPrice);
+			                if (flightshow.flightlist[0][0].sparpreisTicket == null)
+			                {
+			                    console.log("售罄");
+			                }
 			            	var i, j;
 			            	for(i=0; i<flightshow.flightlist.length; i++)
 			            	{
@@ -190,6 +212,16 @@ var flightshow = new Vue({
 			            			flightshow.flightlist[i][j].arriveTime = flightshow.flightlist[i][j].arriveTime.substring(11, 16);
 			            			flightshow.flightlist[i][j].departureTime = flightshow.flightlist[i][j].departureTime.substring(11, 16);
 			            			console.log(flightshow.flightlist[i][j].arriveTime);
+			            			if (flightshow.flightlist[i][j].sparpreisTicket == null)
+			            			{
+			            			    flightshow.flightlist[i][j].sparpreisTicket = { ticketPrice: "售罄" };
+			            			}
+			            			if (flightshow.flightlist[0][0].firstClassCabinTicket == null) {
+			            			    flightshow.flightlist[i][j].firstClassCabinTicket = { ticketPrice: "售罄" };
+			            			}
+			            			if (flightshow.flightlist[0][0].touristClassTicket == null) {
+			            			    flightshow.flightlist[i][j].touristClassTicket = { ticketPrice: "售罄" };
+			            			}
 			            		}
 			            	}
 			            },
