@@ -1,3 +1,7 @@
+$(window).load(function () {
+    $('body').addClass('loaded');
+    $('#loader-wrapper .load_title').remove();
+});
 var orderDetail = new Vue({
 	el: '#order-detail',
 	data: {

@@ -16,8 +16,10 @@
   <link href="@Url.Content("~/Content/Order/bootstrap.min.css")" rel="stylesheet">
   <link href="@Url.Content("~/Content/flexslider.css")" rel="stylesheet">
   <link href="@Url.Content("~/Content/templatemo-style.css")" rel="stylesheet">
-  
-
+  <!--页面加载start-->
+  <link rel="stylesheet" type="text/css" href="~/Content/loader.css">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="@Url.Content("~/images/favicon.png")">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -25,10 +27,18 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- favicon -->
-    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="shortcut icon" href="~/Images/favicon.png">
 
   </head>
   <body class="tm-gray-bg" style="background-color:rgb(255,255,255);">
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+        <div class="load_title">订单数据，一目了然</div>
+    </div>
+    <!--页面加载end-->
+
 	<!-- Header -->
 	<nav class="navbar navbar-default" style="height: 70px;background:rgb(255,255,255);border-bottom:1.6px solid rgb(41, 150, 189);">
 		<div class="container-fluid">

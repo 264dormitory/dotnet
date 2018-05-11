@@ -173,7 +173,6 @@ $(window).load(function () {
                     };
                     console.log(jsondata);
                     jQuery.ajax({
-                        // url: 'http://10.200.9.7:8081/Flight/getAllByCondition',
                         url: 'http://localhost:8081/Flight/getAllByCondition',  //向后台传输数据
                         type: 'get',
                         contentType: 'application/json;charset=UTF-8',
