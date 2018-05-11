@@ -72,6 +72,7 @@ namespace planeTicketBooking.Controllers
             catch (Exception ex)
             {
                 Response.Write(ex.Message);
+                ViewData["error"] = ex.Message;
             }
             finally
             {
