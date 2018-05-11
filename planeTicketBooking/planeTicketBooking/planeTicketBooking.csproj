@@ -456,6 +456,8 @@
     <Content Include="img\line.png" />
     <Content Include="img\loading.gif" />
     <Content Include="img\navhead1.jpg" />
+    <Content Include="img\navhead2.jpg" />
+    <Content Include="img\navhead3.jpg" />
     <Content Include="img\plane.png" />
     <Content Include="img\rating.png" />
     <Content Include="img\rmb.png" />
