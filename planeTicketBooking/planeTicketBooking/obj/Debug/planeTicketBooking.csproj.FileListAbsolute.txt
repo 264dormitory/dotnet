@@ -112,4 +112,3 @@ D:\gitFile\dotnet\planeTicketBooking\planeTicketBooking\bin\zh-Hans\Microsoft.Ow
 D:\gitFile\dotnet\planeTicketBooking\planeTicketBooking\bin\zh-Hans\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 D:\gitFile\dotnet\planeTicketBooking\planeTicketBooking\obj\Debug\planeTicketBooking.dll
 D:\gitFile\dotnet\planeTicketBooking\planeTicketBooking\obj\Debug\planeTicketBooking.pdb
-D:\gitFile\dotnet\planeTicketBooking\planeTicketBooking\obj\Debug\planeTicketBooking.csprojResolveAssemblyReference.cache
