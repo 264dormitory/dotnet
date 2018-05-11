@@ -10,7 +10,18 @@ $(window).load(function () {
             {
                 pagemessage: "",
                 currentpage: 1,
-                totalpage: ""
+                totalpage: "",
+                companyImg: {
+                    hainan: "~/img/company/hainan.png",
+                    xiangpeng: "~/img/company/xiangpeng.png",
+                    lianhe: "~/img/company/lianhe.png",
+                    nanfang: "~/img/company/nanfang.png",
+                    zhongguo: "~/img/company/chianCompany.gif",
+                    dongfang: "~/img/company/dongfang.gif",
+                    sichuan: "~/img/company/sichuan.gif",
+                    shenzhen: "~/img/company/shenzhen.gif",
+                    huxia: "~/img/company/huaxia.gif"
+                }
             },
         methods:
             {
