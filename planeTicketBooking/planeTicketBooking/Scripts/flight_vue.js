@@ -165,6 +165,17 @@ $(window).load(function () {
             {
                 flightlist: "",
                 totalpage: "",
+                companyImg: {
+                    hainan: "~/img/company/hainan.png",
+                    xiangpeng: "~/img/company/xiangpeng.png",
+                    lianhe: "~/img/company/lianhe.png",
+                    nanfang: "~/img/company/nanfang.png",
+                    zhongguo: "~/img/company/chianCompany.gif",
+                    dongfang: "~/img/company/dongfang.gif",
+                    sichuan: "~/img/company/sichuan.gif",
+                    shenzhen: "~/img/company/shenzhen.gif",
+                    huaxia: "~/img/company/huaxia.gif"
+                }
             },
         methods: {
             showData: function () {
@@ -204,18 +215,51 @@ $(window).load(function () {
                                 for (j = 0; j < 1; j++) {
                                     flightshow.flightlist[i][j].arriveTime = flightshow.flightlist[i][j].arriveTime.substring(11, 16);
                                     flightshow.flightlist[i][j].departureTime = flightshow.flightlist[i][j].departureTime.substring(11, 16);
-                                    console.log(flightshow.flightlist[i][j].arriveTime);
+                                    //console.log(flightshow.flightlist[i][j].arriveTime);
                                     if (flightshow.flightlist[i][j].sparpreisTicket == null) {
                                         flightshow.flightlist[i][j].sparpreisTicket = { ticketPrice: "售罄" };
                                     }
-                                    if (flightshow.flightlist[0][0].firstClassCabinTicket == null) {
+                                    if (flightshow.flightlist[i][j].firstClassCabinTicket == null) {
                                         flightshow.flightlist[i][j].firstClassCabinTicket = { ticketPrice: "售罄" };
                                     }
-                                    if (flightshow.flightlist[0][0].touristClassTicket == null) {
+                                    if (flightshow.flightlist[i][j].touristClassTicket == null) {
                                         flightshow.flightlist[i][j].touristClassTicket = { ticketPrice: "售罄" };
+                                    }
+                                    switch(flightshow.flightlist[i][j].plane.company.companyName){
+                                        case "海南航空":
+                                            flightshow.flightlist[i][j].companyImg = flightshow.companyImg.hainan;
+                                            break;
+                                        case "祥鹏航空":
+                                            flightshow.flightlist[i][j].companyImg = flightshow.companyImg.xiangpeng;
+                                            break;
+                                        case "联合航空":
+                                            flightshow.flightlist[i][j].companyImg = flightshow.companyImg.lianhe;
+                                            break;
+                                        case "南方航空":
+                                            flightshow.flightlist[i][j].companyImg = flightshow.companyImg.nanfang;
+                                            break;
+                                        case "中国航空":
+                                            flightshow.flightlist[i][j].companyImg = flightshow.companyImg.zhongguo;
+                                            break;
+                                        case "东方航空":
+                                            flightshow.flightlist[i][j].companyImg = flightshow.companyImg.dongfang;
+                                            break;
+                                        case "四川航空":
+                                            flightshow.flightlist[i][j].companyImg = flightshow.companyImg.sichuan;
+                                            break;
+                                        case "深圳航空":
+                                            flightshow.flightlist[i][j].companyImg = flightshow.companyImg.shenzhen;
+                                            break;
+                                        case "华夏航空":
+                                            flightshow.flightlist[i][j].companyImg = flightshow.companyImg.huaxia;
+                                            break;
+                                        default:
+                                            flightshow.flightlist[i][j].companyImg = flightshow.companyImg.zhongguo;
+                                            break;
                                     }
                                 }
                             }
+                            console.log(flightshow.flightlist);
                         },
                         error: function (data) {
                             console.log(data.responseJSON.message);

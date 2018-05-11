@@ -578,6 +578,7 @@
     <Content Include="Views\pageModel\header.cshtml" />
     <Content Include="Views\pageModel\banner.cshtml" />
     <Content Include="Views\pageModel\scrollup.cshtml" />
+    <Content Include="Views\pageModel\flight_template.cshtml" />
     <Content Include="Views\Order\order.cshtml" />
     <Content Include="Views\OrderFull\orderfull.cshtml" />
     <Content Include="Views\AirlineCompanyAdmin\AddAirlineMsg.cshtml" />
