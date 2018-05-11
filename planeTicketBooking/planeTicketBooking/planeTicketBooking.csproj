@@ -629,6 +629,8 @@
     <Folder Include="img\company\" />
     <Folder Include="Scripts\adminjs\leftpages\" />
     <Folder Include="Scripts\adminjs\pages\" />
+    <Folder Include="Views\AirlineCompanyAdmin\" />
+    <Folder Include="Views\Order\" />
     <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>
