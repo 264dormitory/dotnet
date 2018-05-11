@@ -16,6 +16,10 @@
   <link href="@Url.Content("~/Content/Order/bootstrap.min.css")" rel="stylesheet">
   <link href="@Url.Content("~/Content/flexslider.css")" rel="stylesheet">
   <link href="@Url.Content("~/Content/templatemo-style.css")" rel="stylesheet">
+  <!--页面加载start-->
+  <link rel="stylesheet" type="text/css" href="~/Content/loader.css">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="@Url.Content("~/images/favicon.png")">
 
   <style type="text/css">
   	.btn-circle 
@@ -43,6 +47,13 @@
   <body class="tm-gray-bg" style="background-color:#f6f6f6;">
 	<!-- Header -->
 
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+        <div class="load_title">N-Travel，买的放心，玩的开心。</div>
+    </div>
+    <!--页面加载end-->
 	<!-- gray bg -->	
 	<section id="passager-detail" class="container tm-home-section-1" id="more">
 		<!-- 订单填写页面 -->
@@ -323,8 +334,10 @@
 	<script src="@Url.Content("~/Scripts/orderfull.js")"></script>
 
 	<!-- Vue.js -->
-	<script src="@Url.Content("~/Scripts/moment.js")"></script>					<!-- moment.js -->	
-	<script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>			<!-- bootstrap js -->
+	<script src="@Url.Content("~/Scripts/moment.js")"></script>					
+    <!-- moment.js -->	
+	<script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>			
+    <!-- bootstrap js -->
 
 	<script src="@Url.Content("~/Scripts/jquery.flexslider-min.js")"></script>		
 	<script src="@Url.Content("~/Scripts/templatemo-script.js")"></script>	

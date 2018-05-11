@@ -439,25 +439,27 @@
     <Content Include="img\banner-1.jpg" />
     <Content Include="img\banner-2.jpg" />
     <Content Include="img\banner-3.jpg" />
+    <Content Include="img\company\chinaCompany.gif" />
+    <Content Include="img\company\dongfang.gif" />
+    <Content Include="img\company\hainan.png" />
+    <Content Include="img\company\huaxia.gif" />
+    <Content Include="img\company\kuming.gif" />
+    <Content Include="img\company\lianhe.png" />
+    <Content Include="img\company\nanfang.png" />
+    <Content Include="img\company\shenzhen.gif" />
+    <Content Include="img\company\sichuan.gif" />
+    <Content Include="img\company\xiangpeng.png" />
     <Content Include="img\flight.jpg" />
     <Content Include="img\flight2.jpg" />
     <Content Include="img\footer.png" />
     <Content Include="img\globalsign.gif" />
-    <Content Include="img\index-01.jpg" />
-    <Content Include="img\index-02.jpg" />
-    <Content Include="img\index-03.jpg" />
-    <Content Include="img\index-04.jpg" />
-    <Content Include="img\index-05.jpg" />
-    <Content Include="img\index-06.jpg" />
-    <Content Include="img\index-07.jpg" />
-    <Content Include="img\index-08.jpg" />
-    <Content Include="img\index-09.jpg" />
-    <Content Include="img\index-10.jpg" />
     <Content Include="img\line.png" />
     <Content Include="img\loading.gif" />
+    <Content Include="img\navhead1.jpg" />
     <Content Include="img\plane.png" />
     <Content Include="img\rating.png" />
     <Content Include="img\rmb.png" />
+    <Content Include="img\single.png" />
     <Content Include="img\ticket.png" />
     <Content Include="img\top.png" />
     <Content Include="img\tours-01.jpg" />
@@ -574,7 +576,6 @@
     <Content Include="Views\pageModel\header.cshtml" />
     <Content Include="Views\pageModel\banner.cshtml" />
     <Content Include="Views\pageModel\scrollup.cshtml" />
-    <Content Include="Views\pageModel\flight_template.cshtml" />
     <Content Include="Views\Order\order.cshtml" />
     <Content Include="Views\OrderFull\orderfull.cshtml" />
     <Content Include="Views\AirlineCompanyAdmin\AddAirlineMsg.cshtml" />
@@ -626,11 +627,8 @@
     <Folder Include="Content\plugins\sweetalert\" />
     <Folder Include="Content\plugins\tinymce\" />
     <Folder Include="Content\plugins\waitme\" />
-    <Folder Include="img\company\" />
     <Folder Include="Scripts\adminjs\leftpages\" />
     <Folder Include="Scripts\adminjs\pages\" />
-    <Folder Include="Views\AirlineCompanyAdmin\" />
-    <Folder Include="Views\Order\" />
     <Folder Include="Views\test\" />
   </ItemGroup>
   <ItemGroup>

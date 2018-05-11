@@ -1,3 +1,7 @@
+$(window).load(function () {
+    $('body').addClass('loaded');
+    $('#loader-wrapper .load_title').remove();
+});
 /* 用于控制显示订单的长度 */
 var orderNum = 1;
 var date = jQuery.url.param("date");
