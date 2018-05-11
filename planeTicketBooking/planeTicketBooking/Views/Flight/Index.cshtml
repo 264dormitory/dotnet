@@ -24,10 +24,13 @@
     <link href="@Url.Content("~/Content/responsive.css")" rel='stylesheet'>
     <link href="@Url.Content("~/Content/flexslider.css")" rel='stylesheet'>
     <link href="@Url.Content("~/Content/image.css")" rel='stylesheet'>
-
+    
+    <!--页面加载start-->
+    <link rel="stylesheet" type="text/css" href="~/Content/loader.css">
     <!-- favicon -->
     <link rel="shortcut icon" href="@Url.Content("~/images/favicon.png")">
-
+    @* 信息提示框样式文件 *@
+    <link href="../../Content/sweetalert2.css" rel="stylesheet" />
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <link rel="stylesheet" href="css/ie.css">
@@ -35,48 +38,67 @@
 </head>
 <body>
 
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+        <div class="load_title">正在为您拼命加载航班信息</div>
+    </div>
+    <!--页面加载end-->
+
     @Html.Partial("~/Views/pageModel/header.cshtml");
 
     <!-- Grid page -->
-    <div class="content" style="min-height:800px;">
+    <div class="content" style="min-height:800px;margin-bottom:0px;">
         <div class="container">
             <div class="row">
                 <!-- slider -->
-                <div class="span3" id="sidebar">
-                    <div id="widget_accordion" style="font-family: '微软雅黑';">
-                        <h3> 全程预约保障 去哪儿都放心 <a href="#"></a></h3>
-                        <div class="widget">
-                            <div class="scrollbar1">
-                                <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
-                                <div class="viewport">
-                                    <div class="overview">
-                                        <ul>
-                                            <li><a href="#">Camera</a> <span>(9)</span></li>
-                                            <li><a href="#">Notebook </a> <span>(16)</span></li>
-                                            <li><a href="#">Tablet </a> </li>
-                                            <li><a href="#">Television </a> </li>
-                                            <li><a href="#">Smart Phone </a> </li>
-                                            <li><a href="#">Projection </a> </li>
-                                            <li><a href="#">Tablet </a> </li>
-                                            <li><a href="#">Television </a> </li>
-                                            <li><a href="#">Smart Phone </a> </li>
-                                            <li><a href="#">Projection </a> </li>
-                                        </ul>
-                                    </div>
+                <div class="span3 left_content" style="padding-top: 150.444px;">
+                    <div class="col-md-12" style="background-color:#fff;border-radius:5px;padding:0px;">
+                        <div class="col-md-12" style="padding-top:16px;">
+                            <span style="font-family:Microsoft Yahei;font-size:18px;font-weight:400;color:#333;">全程预订保障&nbsp;&nbsp;</span>
+                            <span style="font-family:Microsoft Yahei;font-size:18px;font-weight:400;color:#333;">&nbsp;&nbsp;到哪里都放心</span>
+                        </div>
+                        <div class="col-md-12" style="padding-top:15px;">
+                            <div class="col-md-2">
+                                <div style="width:50px;height:50px;border-radius:50px;border: solid 3px #e1e1e1;text-align: center;vertical-align:middle;">
+                                    <img src="~/img/ticket.png" style="width:45px; height:45px;vertical-align: middle;" />
+                                    <span style="height: 100%;vertical-align: middle;display: inline-block;"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div style="width:50px;height:50px;border-radius:50px;border: solid 3px #e1e1e1;text-align: center;vertical-align:middle;">
+                                    <img src="~/img/plane.png" style="width:35px; height:35px;vertical-align: middle;" />
+                                    <span style="height: 100%;vertical-align: middle;display: inline-block;"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div style="width:50px;height:50px;border-radius:50px;border: solid 3px #e1e1e1;text-align: center;vertical-align:middle;">
+                                    <img src="~/img/rmb.png" style="width:35px; height:35px;vertical-align: middle;" />
+                                    <span style="height: 100%;vertical-align: middle;display: inline-block;"></span>
                                 </div>
                             </div>
                         </div>
-
-                        <h3> 低价航线推荐 <a href="#"></a></h3>
-                        <div class="widget">
-                            <form>
-                                <select>
-                                    <option>$100 - $ 500</option>
-                                    <option>$500 - $ 1000</option>
-                                </select>
-                            </form>
+                        <div class="col-md-12" style="padding-top:15px;">
+                            <div class="col-md-2">
+                                <div style="width:50px;height:50px;text-align: center;vertical-align:middle;font-size:12px;color:#0088cc;">
+                                出票保障
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div style="width:50px;height:50px;text-align: center;vertical-align:middle;font-size:12px;color:#0088cc;">
+                                出行保障
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div style="width:50px;height:50px;text-align: center;vertical-align:middle;font-size:12px;color:#0088cc;">
+                                退款保障
+                                </div>
+                            </div>
                         </div>
-
+                        <div class="col-md-11" style="color:rgb(136, 136, 136);padding-bottom:16px;">
+                            不适用于航司官网跳转、预约机票产品
+                        </div>
                     </div>
                 </div>
                 <!-- slider end -->
@@ -98,9 +120,6 @@
                                 <li>
                                     <a href="#filter" data-option-value=".star">机型</a>
                                 </li>
-                                <!--
-                                <li><a href="#filter" data-option-value=".rate" >直飞</a></li>
-                                -->
                                 <li>
                                     <label>
                                         <input type="checkbox" name="forward">
@@ -134,10 +153,11 @@
     </div>
     <!-- Grid page -->
     @Html.Partial("~/Views/pageModel/footer.cshtml");
-    @Html.Partial("~/Views/pageModel/scrollup.cshtml");
 
     @* 页面所需的js文件 *@
     <script src="@Url.Content("~/Scripts/jquery-1.11.2.min.js")"></script>
+    @* 信息提示框 *@
+    <script src="../../Scripts/sweetalert2.min.js"></script>
     <script src="@Url.Content("~/Scripts/flight.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery.flexslider.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery.flexslider-min.js")"></script>

@@ -3,10 +3,17 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
 
-<html>
+<!DOCTYPE html> 
+<!--[if IE 7]>    <html class="ie7" > <![endif]-->
+<!--[if IE 8]>    <html class="ie8" > <![endif]-->
+<!--[if IE 9]>    <html class="ie9" > <![endif]-->
+<!--[if IE 9]>    <html class="ie10" > <![endif]-->
+<!--[if (gt IE 10)|!(IE)]><!--> 
+<html> <!--<![endif]-->
 <head>
+    <!-- META TAGS -->
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <!-- Title -->
     <title>欢迎使用机票预定系统</title>
@@ -19,7 +26,10 @@
     <link href="@Url.Content("~/Content/image.css")" rel='stylesheet'>
     <link href="@Url.Content("~/Content/hzw-city-picker.css")" rel='stylesheet'>
     <link rel="shortcut icon" href="@Url.Content("~/images/favicon.png")">
-
+    <!--页面加载start-->
+    <link rel="stylesheet" type="text/css" href="~/Content/loader.css">
+    @* 信息提示框样式文件 *@
+    <link href="../../Content/sweetalert2.css" rel="stylesheet" />
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <link rel="stylesheet" href="css/ie.css">
@@ -27,11 +37,19 @@
 </head>
 <body>
 
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+        <div class="load_title">完美旅程即将开启</div>
+    </div>
+    <!--页面加载end-->
+
     @Html.Partial("~/Views/pageModel/header.cshtml");
     @Html.Partial("~/Views/pageModel/banner.cshtml");
 
     <!-- Special Offer -->
-    <div class="specialoffer-wrapper notification" style="margin-bottom:0px;">
+    <div class="specialoffer-wrapper notification" style="margin-bottom: 0px;">
         <div class="container">
 
             <!-- Heading -->
@@ -51,9 +69,6 @@
                         <div class="offer">
                             <figure>
                                 <img src="~/Images/Arxan.jpg" alt="Offer Image" style="width:270px;height:167px;">
-                                <div class="overlay">
-                                    <a href="#" class="like"></a>
-                                </div>
                             </figure>
                             <article>
                                 <h3>北京 - 阿尔山</h3>
@@ -69,7 +84,7 @@
                             </article>
                             <div class="price">
                                 <h3>&#65509;89</h3>
-                                <a href="#"></a>
+                                <a href="/Flight/Index"></a>
                             </div>
                         </div>
                     </li>
@@ -78,9 +93,6 @@
                         <div class="offer">
                             <figure>
                                 <img src="~/Images/dalian.jpg" alt="Offer Image" style="width:270px;height:167px;">
-                                <div class="overlay">
-                                    <a href="#" class="like"></a>
-                                </div>
                             </figure>
                             <article>
                                 <h3>武汉 - 大连</h3>
@@ -96,7 +108,7 @@
                             </article>
                             <div class="price">
                                 <h3>&#65509;96</h3>
-                                <a href="#"></a>
+                                <a href="/Flight/Index"></a>
                             </div>
                         </div>
                     </li>
@@ -105,9 +117,6 @@
                         <div class="offer">
                             <figure>
                                 <img src="~/Images/nanchang.jpg" alt="Offer Image" style="width:270px;height:167px;">
-                                <div class="overlay">
-                                    <a href="#" class="like"></a>
-                                </div>
                             </figure>
                             <article>
                                 <h3>石家庄 - 南昌</h3>
@@ -123,7 +132,7 @@
                             </article>
                             <div class="price">
                                 <h3>&#65509;218</h3>
-                                <a href="#"></a>
+                                <a href="/Flight/Index"></a>
                             </div>
                         </div>
                     </li>
@@ -132,9 +141,6 @@
                         <div class="offer">
                             <figure>
                                 <img src="~/Images/wuhan.jpg" alt="Offer Image" style="width:270px;height:167px;">
-                                <div class="overlay">
-                                    <a href="#" class="like"></a>
-                                </div>
                             </figure>
                             <article>
                                 <h3>天津 - 武汉</h3>
@@ -150,17 +156,15 @@
                             </article>
                             <div class="price">
                                 <h3>&#65509;210</h3>
-                                <a href="#"></a>
+                                <a href="/Flight/Index"></a>
                             </div>
                         </div>
                     </li>
+
                     <li class="span3">
                         <div class="offer">
                             <figure>
                                 <img src="~/Images/nanyang.jpg" alt="Offer Image"  style="width:270px;height:167px;">
-                                <div class="overlay">
-                                    <a href="#" class="like"></a>
-                                </div>
                             </figure>
                             <article>
                                 <h3>北京 - 南阳</h3>
@@ -176,7 +180,7 @@
                             </article>
                             <div class="price">
                                 <h3>&#65509;108</h3>
-                                <a href="#"></a>
+                                <a href="/Flight/Index"></a>
                             </div>
                         </div>
                     </li>
@@ -192,13 +196,16 @@
         </div>
 
     </div>
+
     <!-- Special Offer -->
     @Html.Partial("~/Views/pageModel/footer.cshtml");
-    @Html.Partial("~/Views/pageModel/scrollup.cshtml");
+    @*@Html.Partial("~/Views/pageModel/scrollup.cshtml");*@
 
 
     @* 页面所需的js文件 *@
     <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")"></script>
+    @* 信息提示框 *@
+    <script src="../../Scripts/sweetalert2.min.js"></script>
     <script src="@Url.Content("~/Scripts/jquery.flexslider.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery.flexslider-min.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery.elastislide.js")"></script>
