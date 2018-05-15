@@ -154,7 +154,7 @@
 							<h3>联系人</h3>
 							<form class="form-inline row">
 								<div class="form-group col-lg-11 col-md-11 col-sm-11" style="padding: 20px 5px 0 15px;">
-									<input type="text" class="form-control" id="name" placeholder="姓名" style="width: 100%;" :value="passagerMessages[0].user.username">
+									<input type="text" class="form-control" id="name" placeholder="姓名" style="width: 100%;" :value="currentUser.username">
 								</div>
 							</form>
 							<form class="form-inline row" style="padding-top: 10px;">
@@ -166,7 +166,7 @@
 									</select>
 								</div>
 								<div class="form-group col-lg-8 col-md-8 col-sm-8" style="padding: 0 5px 0 5px;">
-									<input type="text" class="form-control" id="o_tell" placeholder="手机号码，接收航班信息" style="width: 100%;" :value="passagerMessages[0].user.phoneNum">
+									<input type="text" class="form-control" id="o_tell" placeholder="手机号码，接收航班信息" style="width: 100%;" :value="currentUser.phoneNum">
 								</div>
 							</form>
 						</div>

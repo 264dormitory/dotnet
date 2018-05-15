@@ -30,6 +30,8 @@
     <link rel="shortcut icon" href="@Url.Content("~/images/favicon.png")">
     @* 信息提示框样式文件 *@
     <link href="../../Content/sweetalert2.css" rel="stylesheet" />
+    <!-- 选择框的样式文件 -->
+    <link href="~/Content/bootstrap-select.min.css" rel="stylesheet" />
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <link rel="stylesheet" href="css/ie.css">
@@ -128,33 +130,32 @@
                     </div>
                 </div>
                 <!-- slider end -->
-                <div class="span9 right_content">
+                <div class="span9 right_content" style="padding-top:0px;">
                     <!-- fliter -->
-                    <div class="row">
-                        <div class="portfolio-nav span9 clearfix">
-                            <strong>筛选:</strong>
-                            <ul class="option-set clearfix form-inline" data-option-key="filter">
-                                <li>
-                                    <a href="#filter" data-option-value="*" class="selected">起飞时间</a>
-                                </li>
-                                <li>
-                                    <a href="#filter" data-option-value=".branding">航空公司 </a>
-                                </li>
-                                <li>
-                                    <a href="#filter" data-option-value=".price">舱位</a>
-                                </li>
-                                <li>
-                                    <a href="#filter" data-option-value=".star">机型</a>
-                                </li>
-                                <li>
-                                    <label>
-                                        <input type="checkbox" name="forward">
-                                        直飞
-                                    </label>
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                            <span class="border"></span>
+                    <div class="row" style="padding:40px 17px 10px 30px;">
+                        <div class="panel panel-primary" style="margin-bottom:0px;">
+                            <div class="panel-heading">航班筛选</div>
+                            <div class="panel-body">
+                                <!-- 起飞时间 -->
+                                <select id="flight-time" multiple></select>
+                                <!-- 航空公司 -->
+                                <select id="company" multiple></select>
+                                <!-- 机型 -->
+                                <select id="plane-type" multiple>
+                                    <option value="中型机">中型机</option>
+                                    <option value="大型机">大型机</option>
+                                </select>
+                                <!-- 起飞时间排序 -->
+                                <select id="time-sort">
+                                    <option value="1">升序</option>
+                                    <option value="2">降序</option>
+                                </select>
+                                <!-- 价格排序 -->
+                                <select id="plane-sort">
+                                    <option value="1">升序</option>
+                                    <option value="2">降序</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <!-- slider end -->
@@ -182,6 +183,9 @@
 
     @* 页面所需的js文件 *@
     <script src="@Url.Content("~/Scripts/jquery-1.11.2.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    <!-- 用于选择框 -->
+    <script src="~/Scripts/bootstrap-select.min.js"></script>
     @* 信息提示框 *@
     <script src="../../Scripts/sweetalert2.min.js"></script>
     <script src="@Url.Content("~/Scripts/flight.js")"></script>
@@ -191,7 +195,6 @@
     <script src="@Url.Content("~/Scripts/jcarousellite_1.0.1.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery.cycle.all.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery-ui.js")"></script>
-    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery.isotope.min.js")"></script>
     <script src="@Url.Content("~/Scripts/jquery.tinyscrollbar.min.js")"></script>
     <!-- 用于置顶的插件 -->

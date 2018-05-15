@@ -4,24 +4,60 @@ $(window).load(function () {
     var page_number = 0;
     var page_lenght = 5;
 
+    //用于动态生成下拉列表
+    var listBind = new Vue({
+        el: '#filter-list',
+        data:
+            {
+                flightlist: ""
+            },
+        methods: {
+            listInit: function () {
+                /* 用于获取航班信息 */
+                var setout = jQuery.url.param("setout");
+                var destination = jQuery.url.param("destination");
+                var setout_date = jQuery.url.param("setout_date");
+                var return_date = jQuery.url.param("return_date");
+                var type = jQuery.url.param("type");
+                if (type == "single") {
+                    var jsondata = {
+                        page: 0,
+                        size: 1000,
+                        setOutCityName: setout,
+                        arriveCityName: destination,
+                        departureDate: setout_date
+                    };
+                    console.log(jsondata);
+                    jQuery.ajax({
+                        url: 'http://localhost:8081/Flight/getAllByCondition',  //向后台传输数据
+                        type: 'get',
+                        contentType: 'application/json;charset=UTF-8',
+                        data: jsondata,
+                        dataType: "json",
+                        success: function (data) {
+                            listBind.flightlist = data.content;
+                            console.log(listBind.flightlist);
+                        },
+                        error: function (data) {
+                            console.log(data.responseJSON.message);
+                        }
+                    });
+                }
+                else {
+
+                }
+            }
+        }
+    })
+    listBind.listInit();
+
     var page = new Vue({
         el: '#page-control',
         data:
             {
                 pagemessage: "",
                 currentpage: 1,
-                totalpage: "",
-                companyImg: {
-                    hainan: "~/img/company/hainan.png",
-                    xiangpeng: "~/img/company/xiangpeng.png",
-                    lianhe: "~/img/company/lianhe.png",
-                    nanfang: "~/img/company/nanfang.png",
-                    zhongguo: "~/img/company/chianCompany.gif",
-                    dongfang: "~/img/company/dongfang.gif",
-                    sichuan: "~/img/company/sichuan.gif",
-                    shenzhen: "~/img/company/shenzhen.gif",
-                    huxia: "~/img/company/huaxia.gif"
-                }
+                totalpage: ""
             },
         methods:
             {
@@ -70,6 +106,38 @@ $(window).load(function () {
                                             }
                                             if (flightshow.flightlist[0][0].touristClassTicket == null) {
                                                 flightshow.flightlist[i][j].touristClassTicket = { ticketPrice: "售罄" };
+                                            }
+                                            switch (flightshow.flightlist[i][j].plane.company.companyName) {
+                                                case "海南航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.hainan;
+                                                    break;
+                                                case "祥鹏航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.xiangpeng;
+                                                    break;
+                                                case "联合航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.lianhe;
+                                                    break;
+                                                case "南方航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.nanfang;
+                                                    break;
+                                                case "中国航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.zhongguo;
+                                                    break;
+                                                case "东方航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.dongfang;
+                                                    break;
+                                                case "四川航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.sichuan;
+                                                    break;
+                                                case "深圳航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.shenzhen;
+                                                    break;
+                                                case "华夏航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.huaxia;
+                                                    break;
+                                                default:
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.zhongguo;
+                                                    break;
                                             }
                                         }
                                     }
@@ -139,6 +207,38 @@ $(window).load(function () {
                                             if (flightshow.flightlist[0][0].touristClassTicket == null) {
                                                 flightshow.flightlist[i][j].touristClassTicket = { ticketPrice: "售罄" };
                                             }
+                                            switch (flightshow.flightlist[i][j].plane.company.companyName) {
+                                                case "海南航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.hainan;
+                                                    break;
+                                                case "祥鹏航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.xiangpeng;
+                                                    break;
+                                                case "联合航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.lianhe;
+                                                    break;
+                                                case "南方航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.nanfang;
+                                                    break;
+                                                case "中国航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.zhongguo;
+                                                    break;
+                                                case "东方航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.dongfang;
+                                                    break;
+                                                case "四川航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.sichuan;
+                                                    break;
+                                                case "深圳航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.shenzhen;
+                                                    break;
+                                                case "华夏航空":
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.huaxia;
+                                                    break;
+                                                default:
+                                                    flightshow.flightlist[i][j].companyImg = flightshow.companyImg.zhongguo;
+                                                    break;
+                                            }
                                         }
                                     }
                                 },
@@ -153,7 +253,12 @@ $(window).load(function () {
                         }
                     }
                     else {
-                        alert("您已经处于首页了！");
+                        //alert("您已经处于首页了！");
+                        swal({
+                            text: "您已经处于首页了！",
+                            type: "info",
+                            confirmButtonText: "确定"
+                        });
                     }
                 }
             }
@@ -166,15 +271,15 @@ $(window).load(function () {
                 flightlist: "",
                 totalpage: "",
                 companyImg: {
-                    hainan: "~/img/company/hainan.png",
-                    xiangpeng: "~/img/company/xiangpeng.png",
-                    lianhe: "~/img/company/lianhe.png",
-                    nanfang: "~/img/company/nanfang.png",
-                    zhongguo: "~/img/company/chianCompany.gif",
-                    dongfang: "~/img/company/dongfang.gif",
-                    sichuan: "~/img/company/sichuan.gif",
-                    shenzhen: "~/img/company/shenzhen.gif",
-                    huaxia: "~/img/company/huaxia.gif"
+                    hainan: "../../img/company/hainan.png",
+                    xiangpeng: "../../img/company/xiangpeng.png",
+                    lianhe: "../../img/company/lianhe.png",
+                    nanfang: "../../img/company/nanfang.png",
+                    zhongguo: "../../img/company/chianCompany.gif",
+                    dongfang: "../../img/company/dongfang.gif",
+                    sichuan: "../../img/company/sichuan.gif",
+                    shenzhen: "../../img/company/shenzhen.gif",
+                    huxia: "../../img/company/huaxia.gif"
                 }
             },
         methods: {
@@ -206,7 +311,20 @@ $(window).load(function () {
                             flightshow.totalpage = data.totalPages;
                             page.$data.totalpage = flightshow.totalpage;
                             console.log(flightshow.flightlist);
-                            //console.log(flightshow.flightlist[0][0].firstClassCabinTicket.ticketPrice);
+                            //如果没有符合要求的航班信息
+                            if (!flightshow.flightlist.length) {
+                                swal({
+                                    text: "对不起，未找到符合条件的航班。",
+                                    type: 'warning',
+                                    showCancelButton: false,
+                                    confirmButtonColor: '#3085d6',
+                                    cancelButtonColor: '#d33',
+                                    confirmButtonText: '确定',
+                                }).then(function () {
+                                    location.href = "/Index/Index";
+                                });
+                            }
+                            //如果某一个舱位的票已经售完
                             if (flightshow.flightlist[0][0].sparpreisTicket == null) {
                                 console.log("售罄");
                             }
@@ -311,5 +429,6 @@ $(window).load(function () {
         }
     })
     flightshow.showData();
+   
     $('#loader-wrapper .load_title').remove();
 });

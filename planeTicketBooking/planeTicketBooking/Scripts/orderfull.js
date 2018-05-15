@@ -65,11 +65,8 @@ var nameList = new Vue(
   el: '#passager-detail',
   data: {
     /* 获取历史乘客信息 */
-    // passagerMessages:[
-    // { name:"段北山", id:530111199604232013, phoneNum:13132002278 },
-    // { name:"李世杰", id:362229199707300057, phoneNum:17612289657 }
-    // ],
     passagerMessages:"",
+    currentUser:"",
     /* 设置乘客信息输入数组，数组长度为定长9 */
     messageFull:[
     {
@@ -173,6 +170,21 @@ var nameList = new Vue(
              break;
           }
         }
+      },
+      getCurrentUser: function()
+      {
+          jQuery.ajax({
+              url: 'http://localhost:8081/User/getCurrentUser',  //向后台传输数据
+              type: 'get',
+              contentType: 'application/json;charset=UTF-8',
+              success: function (data) {
+                  console.log(data);
+                  nameList.currentUser = data;
+              },
+              error: function (data) {
+                  console.log(data);
+              }
+          });
       },
       addOrder: function()
       {
@@ -361,7 +373,7 @@ var nameList = new Vue(
           success: function(data)
           {
             console.log(data);
-            window.location.href = "./order.php";
+            window.location.href = "/Order/order";
           },
           error: function(data)
           {
@@ -372,3 +384,4 @@ var nameList = new Vue(
     }
 })
 nameList.getHistoryPassager();
+nameList.getCurrentUser();
